@@ -1,0 +1,23 @@
+.cart-info {
+  padding-left: 23px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+}
+.total-cost {
+  padding-left: 23px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21px;
+  color: #0e161a;
+}
+.cart-title {
+  text-align: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  color: #1c2b35;
+}
