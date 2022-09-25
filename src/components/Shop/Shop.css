@@ -11,3 +11,25 @@
   padding-right: 18%;
   margin-top: 120px;
 }
+.cart-container {
+  background-color: rgba(255, 153, 0, 0.3);
+}
+.cart-title {
+  text-align: center;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  color: #1c2b35;
+}
+
+@media screen and (max-width: 1100px) {
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+    padding-left: 14%;
+    padding-right: 14%;
+    margin-top: 120px;
+  }
+}
