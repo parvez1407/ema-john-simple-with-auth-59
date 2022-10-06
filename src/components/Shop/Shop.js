@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
@@ -10,6 +10,10 @@ import './Shop.css';
 const Shop = () => {
     const products = useLoaderData();
     const [cart, setCart] = useState([]);
+    const clearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
 
     useEffect(() => {
         const storedCart = getStoredCart()
@@ -54,7 +58,9 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart} clearCart={clearCart}>
+                    <Link className='mt-2 mb-10 flex justify-between p-2 items-center text-center m-1 bg-orange-300 hover:bg-orange-400 py-2 rounded-md text-white' to='/orders'>Review Order</Link>
+                </Cart>
             </div>
         </div>
     );
