@@ -2,8 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 
-const ReviewItem = ({ product }) => {
-    const { name, price, quantity, shipping, img } = product;
+const ReviewItem = ({ product, handleRemoveItem }) => {
+    const { name, price, quantity, shipping, img, id } = product;
     return (
         <div className='flex my-4 border-2 border-orange-400 rounded-lg p-2 w-2/4 items-center justify-between mx-auto'>
             <div className='flex items-center'>
@@ -16,7 +16,7 @@ const ReviewItem = ({ product }) => {
                 </div>
             </div>
             <div>
-                <button className='text-2xl mr-5 text-red-400 bg-red-200 py-3 px-4 rounded-full hover:text-red-600 hover:bg-red-300'>
+                <button onClick={() => handleRemoveItem(id)} className='text-2xl mr-5 text-red-400 bg-red-200 py-3 px-4 rounded-full hover:text-red-600 hover:bg-red-300'>
                     <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
                 </button>
             </div>
