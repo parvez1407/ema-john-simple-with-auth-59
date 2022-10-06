@@ -1,3 +1,7 @@
+.cart {
+  position: sticky;
+  top: 25px;
+}
 .cart-info {
   padding-left: 23px;
   font-family: "Lato";
