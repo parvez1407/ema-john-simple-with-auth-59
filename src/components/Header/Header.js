@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import logo from '../../images/Logo.svg';
 import './Header.css';
 
 const Header = () => {
+    const { user } = useContext(AuthContext);
+    console.log(user.email)
     return (
         <div>
             <nav className='header-nav'>
@@ -16,6 +19,7 @@ const Header = () => {
                     <Link to='/about'>About</Link>
                     <Link to='/login'>Login</Link>
                     <Link to='/signup'>SignUp</Link>
+                    <span className='text-white'>{user?.email}</span>
                 </div>
             </nav>
         </div>
