@@ -5,8 +5,8 @@ import logo from '../../images/Logo.svg';
 import './Header.css';
 
 const Header = () => {
-    const { user } = useContext(AuthContext);
-    console.log(user.email)
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user?.email)
     return (
         <div>
             <nav className='header-nav'>
@@ -17,9 +17,15 @@ const Header = () => {
                     <Link to='/orderReview'>Order Review</Link>
                     <Link to='/inventory'>Manage Inventory</Link>
                     <Link to='/about'>About</Link>
-                    <Link to='/login'>Login</Link>
-                    <Link to='/signup'>SignUp</Link>
-                    <span className='text-white'>{user?.email}</span>
+                    {
+                        user?.uid ?
+                            <button onClick={logOut} className='text-white ml-3 hover:text-orange-400'>Log Out</button>
+                            :
+                            <>
+                                <Link to='/login'>Login</Link>
+                                <Link to='/signup'>SignUp</Link>
+                            </>
+                    }
                 </div>
             </nav>
         </div>

@@ -1,11 +1,33 @@
-import React from 'react';
-import { Form, Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Form, Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 import './Login.css';
 const Login = () => {
+
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate('/')
+            })
+            .catch(error => {
+                console.error('error: ', error);
+            })
+    }
     return (
         <div className='form-container'>
             <h2 className='form-title'>Login</h2>
-            <Form className='full-form'>
+            <Form onSubmit={handleSubmit} className='full-form'>
                 <div className='form-control'>
                     <label htmlFor="email">Email</label>
                     <input type="email" name='email' required />
